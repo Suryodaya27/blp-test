@@ -68,7 +68,7 @@ const Home = () => {
     <div className="bg-background relative z-10">
       <AnimatedBackground />
       {/* Hero Section */}
-      <section className="min-h-screen lg:pt-0 pt-24 relative  flex items-center justify-center overflow-hidden shadow-xl">
+      <section className="min-h-screen lg:pt-24 pt-24 relative  flex items-center justify-center overflow-hidden shadow-xl">
         <motion.div
           className="relative z-10 container mx-auto px-6 text-center"
           initial={{ opacity: 0, y: 40 }}
@@ -147,7 +147,7 @@ const Home = () => {
       {/* ...existing code... */}
 
       {/* Services Section */}
-      <section className="py-16 bg-gradient-hero relative overflow-hidden">
+      <section className="py-16 bg-background relative overflow-hidden">
         <motion.div
           className="container mx-auto px-6 relative z-10"
           initial={{ opacity: 0, y: 40 }}
@@ -186,7 +186,7 @@ const Home = () => {
 
       {/* Metrics Section */}
       <section className="py-16 bg-card border-y border-border relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-primary opacity-5" />
+        <div className="absolute inset-0 bg-primary opacity-5" />
         <motion.div
           className="container mx-auto px-6 relative z-10"
           initial={{ opacity: 0, y: 40 }}
@@ -204,7 +204,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="font-outfit font-bold text-3xl bg-gradient-primary bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
+                <div className="font-outfit font-bold text-3xl bg-primary bg-clip-text text-transparent mb-2 group-hover:scale-105 transition-transform duration-300">
                   {metric.number}
                 </div>
                 <div className="font-outfit text-sm text-muted-foreground group-hover:text-cyan transition-colors">
@@ -254,7 +254,7 @@ const Home = () => {
       </section>
 
       {/* Additional Features Section */}
-      <section className="py-24 bg-card border-y border-border">
+      <section className="py-24 bg-background border-y border-border">
         <motion.div
           className="container mx-auto px-6"
           initial={{ opacity: 0, y: 40 }}
@@ -285,7 +285,7 @@ const Home = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
-                <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
+                <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-8 h-8 text-primary-foreground" />
                 </div>
                 <h3 className="font-outfit font-semibold text-lg mb-2 text-foreground group-hover:text-cyan transition-colors">
@@ -320,9 +320,9 @@ const Home = () => {
               { step: "04", title: "Optimize", desc: "Continuous improvement based on real-time data" }
             ].map((step, index) => (
               <div key={step.step} className="relative animate-fade-up" style={{ animationDelay: `${index * 150}ms` }}>
-                <div className="bg-gradient-hero border border-border rounded-xl p-6 hover:border-border-bright transition-all duration-300 group">
+                <div className="bg-hero border border-border rounded-xl p-6 hover:border-border-bright transition-all duration-300 group">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-lg shadow-glow group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-lg shadow-glow group-hover:scale-110 transition-transform">
                       {step.step}
                     </div>
                     <h3 className="font-outfit font-semibold text-lg mb-3 text-foreground group-hover:text-cyan transition-colors">
@@ -343,11 +343,11 @@ const Home = () => {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-primary opacity-5" />
+      <section className="py-24 bg-card relative overflow-hidden">
+        {/* <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-primary opacity-5" />
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-cyan rounded-lg opacity-10 animate-float" />
-        </div>
+        </div> */}
 
         <div className="container mx-auto px-6 text-center relative z-10">
           <h2 className="font-outfit font-bold text-2xl md:text-4xl mb-4 text-foreground">

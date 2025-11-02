@@ -18,7 +18,7 @@ const ServiceCard = ({ icon: Icon, title, description, delay = 0 }: ServiceCardP
       
       {/* Content */}
       <div className="relative z-10">
-        <div className="flex items-center justify-center w-12 h-12 bg-gradient-primary rounded-lg mb-4 group-hover:shadow-glow transition-all duration-300">
+        <div className="flex items-center justify-center w-12 h-12 bg-primary rounded-lg mb-4 group-hover:shadow-glow transition-all duration-300">
           <Icon className="w-6 h-6 text-primary-foreground" />
         </div>
         

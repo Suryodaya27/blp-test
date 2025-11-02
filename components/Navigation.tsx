@@ -65,7 +65,7 @@ const Navigation = () => {
         <div className="flex items-center justify-between min-h-14 md:min-h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3 group relative">
-            <div className="absolute inset-0 bg-gradient-primary opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-500" />
+            <div className="absolute inset-0 bg-primary opacity-0 group-hover:opacity-20 blur-2xl transition-all duration-500" />
             <Image
               src={logoImage}
               alt="BluePrynt - Premium Marketing Agency"
@@ -87,7 +87,7 @@ const Navigation = () => {
                   }`}
               >
                 {item.name}
-                <span className={`absolute -bottom-1 left-0 h-0.5 bg-gradient-primary transition-all duration-500 ${pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+                <span className={`absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-500 ${pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
                   }`} />
               </Link>
             ))}

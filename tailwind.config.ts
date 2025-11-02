@@ -14,10 +14,10 @@ export default {
     },
     extend: {
       fontFamily: {
+        outfit: ["var(--font-outfit)", "sans-serif"],
         sans: ['Outfit', 'Inter', 'sans-serif'],
         poppins: ['Poppins', 'sans-serif'],
         inter: ['Inter', 'sans-serif'],
-        outfit: ["var(--font-geist-sans)", "sans-serif"],
         grotesk: ['Space Grotesk', 'sans-serif'],
       },
       colors: {
