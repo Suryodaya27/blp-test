@@ -242,7 +242,7 @@ const Home = () => {
               Why Choose BluePrynt?
             </h2>
             <p className="font-outfit text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-              More than an agency – we're your strategic partners in digital transformation.
+              More than an agency – we&apos;re your strategic partners in digital transformation.
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
@@ -325,7 +325,7 @@ const Home = () => {
             Find Your Missing Piece Today
           </h2>
           <p className="font-outfit text-base md:text-lg text-muted-foreground mb-6 max-w-xl mx-auto">
-            Every great structure starts with a solid BluePrynt. Let's build yours.
+            Every great structure starts with a solid BluePrynt. Let&apos;s build yours.
           </p>
 
           <Button variant="default" size="lg" asChild>

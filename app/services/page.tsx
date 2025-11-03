@@ -377,7 +377,7 @@ const Services = () => {
           <p
             className="font-outfit text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
-            Let's discuss which services will form the foundation of your success story.
+            Let&apos;s discuss which services will form the foundation of your success story.
           </p>
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center"
