@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-import logoImage from "@/assets/bp-2.png";
+import logoImage from "@/public/assets/bp-2.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);

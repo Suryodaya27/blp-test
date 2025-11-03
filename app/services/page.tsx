@@ -1,10 +1,49 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Globe, Search, Bot, Users, Target, Check, Zap, TrendingUp, Award, BarChart, Lightbulb } from "lucide-react";
 import AnimatedBackground from "@/components/AnimatedBackground";
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Services | BluePrynt — Marketing, SEO, AI & Web Architecture Experts",
+  description:
+    "Explore BluePrynt’s full suite of marketing services — from SEO and AI-driven campaigns to web development and influencer marketing. We design data-backed strategies that build lasting brand structures.",
+  keywords: [
+    "marketing agency",
+    "digital marketing",
+    "SEO services",
+    "AI marketing",
+    "web development",
+    "branding",
+    "influencer marketing",
+    "BluePrynt marketing",
+    "growth strategy",
+    "social media marketing",
+    "content marketing",
+  ],
+  openGraph: {
+    title: "BluePrynt Services — Data-Driven Marketing & AI Innovation",
+    description:
+      "At BluePrynt, we merge creative storytelling with AI precision to deliver end-to-end marketing solutions — from SEO and web architecture to influencer collaborations.",
+    url: "https://blueprynt.io/services",
+    siteName: "BluePrynt",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BluePrynt Services — Marketing, SEO & AI Architecture",
+    description:
+      "Discover how BluePrynt helps brands grow through SEO, AI-driven campaigns, and full-stack marketing innovation.",
+  },
+  alternates: {
+    canonical: "https://blueprynt.io/services",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const Services = () => {
   const services = [
@@ -29,7 +68,7 @@ const Services = () => {
           description: "Deep dive into your audience, competitors, and conversion goals."
         },
         {
-          step: "Design & Development", 
+          step: "Design & Development",
           description: "Create pixel-perfect, conversion-focused landing pages."
         },
         {
@@ -45,7 +84,7 @@ const Services = () => {
       pricing: "Starting from ₹50,000"
     },
     {
-      id: "seo-aeo", 
+      id: "seo-aeo",
       title: "SEO/AEO",
       subtitle: "Search Visibility That Drives Growth",
       description: "Modern SEO goes beyond keywords. We build search strategies that work for both traditional and AI-powered search engines.",
@@ -82,7 +121,7 @@ const Services = () => {
     },
     {
       id: "ai-agents",
-      title: "AI Agents", 
+      title: "AI Agents",
       subtitle: "Intelligent Automation for Modern Marketing",
       description: "Our AI agents work 24/7 to optimize campaigns, personalize experiences, and drive conversions without human intervention.",
       icon: Bot,
@@ -126,7 +165,7 @@ const Services = () => {
       features: [
         "Creator Network Access",
         "Campaign Strategy & Planning",
-        "Content Creation Oversight", 
+        "Content Creation Oversight",
         "Performance Analytics",
         "Authenticity Verification",
         "ROI Optimization"
@@ -195,39 +234,23 @@ const Services = () => {
       <AnimatedBackground />
 
       {/* Hero Section */}
-      <motion.section
+      <section
         className="py-16"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="container mx-auto px-6 text-center">
-          <motion.h1
+          <h1
             className="font-outfit font-bold text-5xl md:text-6xl mb-6 text-foreground"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
           >
             Services That Build Success
-          </motion.h1>
-          <motion.p
+          </h1>
+          <p
             className="font-outfit text-xl text-muted-foreground max-w-3xl mx-auto mb-8"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            Five core pillars of digital marketing, engineered with precision and designed for scale. 
+            Five core pillars of digital marketing, engineered with precision and designed for scale.
             Each service is a building block in your growth architecture.
-          </motion.p>
-          <motion.div
+          </p>
+          <div
             className="grid grid-cols-2 md:grid-cols-5 gap-4 max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
           >
             {services.map((service, index) => (
               <Link
@@ -241,20 +264,16 @@ const Services = () => {
                 </p>
               </Link>
             ))}
-          </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* Services Detailed Sections */}
       {services.map((service, index) => (
-        <motion.section
+        <section
           key={service.id}
           id={service.id}
           className={`py-20 ${index % 2 === 0 ? "bg-background" : "bg-card"}`}
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: index * 0.1 }}
         >
           <div className="container mx-auto px-6">
             <div className="max-w-6xl mx-auto">
@@ -262,7 +281,7 @@ const Services = () => {
                 {/* Content */}
                 <div className={index % 2 === 0 ? "order-1" : "order-2"}>
                   <div className="flex items-center mb-6">
-                      <div className={`w-16 h-16 rounded-xl bg-linear-to-br ${service.color} flex items-center justify-center mr-4 shadow-glow`}>
+                    <div className={`w-16 h-16 rounded-xl bg-linear-to-br ${service.color} flex items-center justify-center mr-4 shadow-glow`}>
                       <service.icon className="w-8 h-8 text-white" />
                     </div>
                     <div>
@@ -342,42 +361,26 @@ const Services = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
       ))}
 
       {/* CTA Section */}
-      <motion.section
+      <section
         className="py-24 bg-gradient-hero"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="container mx-auto px-6 text-center">
-          <motion.h2
+          <h2
             className="font-outfit font-bold text-4xl md:text-5xl mb-6 text-foreground"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.1 }}
           >
             Ready to Build Your Growth Architecture?
-          </motion.h2>
-          <motion.p
+          </h2>
+          <p
             className="font-outfit text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
           >
             Let's discuss which services will form the foundation of your success story.
-          </motion.p>
-          <motion.div
+          </p>
+          <div
             className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <Button variant="hero" size="lg" asChild>
               <Link href="/brand-enquiry">
@@ -388,9 +391,9 @@ const Services = () => {
             <Button variant="outline" size="lg" asChild>
               <Link href="/contact">Schedule a Consultation</Link>
             </Button>
-          </motion.div>
+          </div>
         </div>
-      </motion.section>
+      </section>
     </div>
   );
 };
