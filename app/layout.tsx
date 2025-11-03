@@ -35,6 +35,7 @@ export default function RootLayout({
         className='antialiased'
       >
         <Navigation />
+        {/* <AnimatePresenceProvider>{children}</AnimatePresenceProvider> */}
         {children}
         <Footer />
       </body>

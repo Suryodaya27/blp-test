@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from 'react';
-import mainImage from '@/assets/background-image.png';
+import mainImage from '@/public/assets/background-image.png';
 import Image from "next/image";
 
 const fallbackSVG = (

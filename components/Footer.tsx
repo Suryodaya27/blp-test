@@ -10,7 +10,7 @@ import {
   Facebook,
   Square,
 } from "lucide-react";
-import logoImage from "@/assets/bp-2.png"; // ✅ move static assets to /public
+import logoImage from "@/public/assets/bp-2.png"; // ✅ move static assets to /public
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
