@@ -98,12 +98,12 @@ function Contact() {
           <h1
             className="font-outfit font-bold text-5xl md:text-6xl mb-6 text-foreground"
           >
-            Let's Build Something Amazing
+            Let&apos;s Build Something Amazing
           </h1>
           <p
             className="font-outfit text-xl text-muted-foreground max-w-3xl mx-auto"
           >
-            Ready to transform your business? We'd love to hear about your vision 
+            Ready to transform your business? We&apos;d love to hear about your vision 
             and show you how we can bring it to life.
           </p>
         </div>
@@ -121,8 +121,8 @@ function Contact() {
                 Get In Touch
               </h2>
               <p className="font-outfit text-lg text-muted-foreground leading-relaxed mb-8">
-                Whether you're a startup looking to make your mark or an enterprise 
-                ready to scale, we're here to help you build the foundation for lasting success.
+                Whether you&apos;re a startup looking to make your mark or an enterprise
+                ready to scale, we&apos;re here to help you build the foundation for lasting success.
               </p>
               <div className="space-y-8">
                 {contactInfo.map((info, index) => (
@@ -179,7 +179,7 @@ function Contact() {
                     Message Sent!
                   </h3>
                   <p className="font-outfit text-muted-foreground">
-                    Thanks for reaching out. We'll get back to you within 24 hours.
+                    Thanks for reaching out. We&apos;ll get back to you within 24 hours.
                   </p>
                 </div>
               ) : (
@@ -303,10 +303,10 @@ function Contact() {
             <div className="bg-muted rounded-xl p-8 text-center">
               <MapPin className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="font-outfit font-semibold text-xl text-foreground mb-4">
-                We're Located Across India
+                We&apos;re Located Across India
               </h3>
               <p className="font-outfit text-muted-foreground mb-6">
-                With offices in Mumbai, Delhi, and Bangalore, we're always close to our clients. 
+                With offices in Mumbai, Delhi, and Bangalore, we&apos;re always close to our clients. 
                 Schedule a visit to see our team in action.
               </p>
               <div className="grid md:grid-cols-3 gap-6">

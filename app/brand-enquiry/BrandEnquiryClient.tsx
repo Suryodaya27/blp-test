@@ -194,7 +194,7 @@ function BrandEnquiry() {
             <p
               className="font-outfit text-base sm:text-lg text-muted-foreground mb-4 sm:mb-6"
             >
-              Tell us about your vision, and we'll craft a custom strategy to bring it to life.
+              Tell us about your vision, and we&apos;ll craft a custom strategy to bring it to life.
             </p>
             {/* Progress Bar */}
             <div
@@ -418,7 +418,7 @@ function BrandEnquiry() {
                       Services & Investment
                     </h2>
                     <p className="font-outfit text-muted-foreground">
-                      What services are you interested in and what's your budget?
+                      What services are you interested in and what&apos;s your budget?
                     </p>
                   </div>
                   <div>

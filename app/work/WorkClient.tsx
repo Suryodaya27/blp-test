@@ -144,7 +144,7 @@ const Work = () => {
           <p
             className="font-outfit text-xl text-muted-foreground max-w-3xl mx-auto mb-8"
           >
-            Every structure tells a story. Here are the digital foundations we've built
+            Every structure tells a story. Here are the digital foundations we&apos;ve built
             that transformed businesses and drove extraordinary results.
           </p>
           {/* Filter Buttons */}
@@ -248,7 +248,7 @@ const Work = () => {
           <p
             className="font-outfit text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
-            Join the ranks of industry leaders who've transformed their business with BluePrynt.
+            Join the ranks of industry leaders who&apos;ve transformed their business with BluePrynt.
           </p>
           <Button variant="hero" size="lg" asChild>
             <Link href="/brand-enquiry">

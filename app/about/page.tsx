@@ -144,7 +144,7 @@ const About = () => {
               The Architects Behind BluePrynt
             </h1>
             <p className="font-outfit text-xl text-muted-foreground max-w-3xl mx-auto">
-              We're not just marketers – we're digital architects building the future of brand experiences, one blueprint at a time.
+              We&apos;re not just marketers – we&apos;re digital architects building the future of brand experiences, one blueprint at a time.
             </p>
           </div>
         </section>
@@ -164,7 +164,7 @@ const About = () => {
                     Founded by three friends who shared a passion for precision and innovation, we set out to create marketing solutions with the rigor of architecture and the creativity of art.
                   </p>
                   <p className="font-outfit text-lg text-muted-foreground leading-relaxed">
-                    Today, we've helped 500+ brands build digital foundations that don't just survive market changes – they thrive in them.
+                    Today, we&apos;ve helped 500+ brands build digital foundations that don&apos;t just survive market changes – they thrive in them.
                   </p>
                 </div>
                 <div className="relative">
@@ -285,7 +285,7 @@ const About = () => {
               Want to Join Our Story?
             </h2>
             <p className="font-outfit text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              We're always looking for exceptional talent and amazing clients to add to our blueprint.
+              We&apos;re always looking for exceptional talent and amazing clients to add to our blueprint.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button variant="hero" size="lg" asChild className="hover:scale-110 transition-transform duration-300 shadow-glow text-lg px-8 py-6">
