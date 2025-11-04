@@ -118,7 +118,7 @@ function BrandEnquiry() {
           <div className="max-w-2xl mx-auto text-center animate-scale-in">
             <div className="relative mb-8">
               <div className="w-24 h-24 bg-gradient-primary rounded-full mx-auto flex items-center justify-center shadow-glow">
-                <CheckCircle className="w-12 h-12 text-primary-foreground" />
+                <CheckCircle className="w-12 h-12 text-white" />
               </div>
               {/* Floating cubes animation */}
               <div className="absolute -top-4 -left-4 w-8 h-8 bg-cyan rounded-md animate-float opacity-60" />
@@ -142,26 +142,26 @@ function BrandEnquiry() {
               <div className="space-y-3 text-left">
                 <div className="flex items-center">
                   <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xs font-bold text-primary-foreground">1</span>
+                    <span className="text-xs font-bold text-white">1</span>
                   </div>
                   <span className="font-outfit text-muted-foreground">Strategy session within 24 hours</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xs font-bold text-primary-foreground">2</span>
+                    <span className="text-xs font-bold text-white">2</span>
                   </div>
                   <span className="font-outfit text-muted-foreground">Custom blueprint presentation</span>
                 </div>
                 <div className="flex items-center">
                   <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center mr-3">
-                    <span className="text-xs font-bold text-primary-foreground">3</span>
+                    <span className="text-xs font-bold text-white">3</span>
                   </div>
                   <span className="font-outfit text-muted-foreground">Project kickoff & timeline</span>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center pb-5">
               <Button variant="hero" asChild>
                 <Link href="/">Back to Home</Link>
               </Button>

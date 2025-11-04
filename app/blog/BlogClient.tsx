@@ -104,7 +104,7 @@ const Blog = () => {
 
   const filteredPosts = blogPosts.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === "all" || post.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -169,15 +169,14 @@ const Blog = () => {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`flex items-center px-4 py-2 rounded-lg transition-all duration-300 ${
-                    selectedCategory === category.id
+                  className={`flex items-center px-4 py-2 rounded-lg transition-all duration-300 ${selectedCategory === category.id
                       ? "bg-primary text-primary-foreground shadow-glow"
                       : "bg-background border border-border hover:border-border-bright text-foreground"
-                  }`}
+                    }`}
                 >
                   <IconComponent className="w-4 h-4 mr-2" />
                   <span className="font-outfit font-medium">{category.label}</span>
-                  <Badge 
+                  {/* <Badge 
                     variant="secondary" 
                     className={`ml-2 ${
                       selectedCategory === category.id 
@@ -186,7 +185,7 @@ const Blog = () => {
                     }`}
                   >
                     {category.count}
-                  </Badge>
+                  </Badge> */}
                 </button>
               );
             })}
@@ -237,7 +236,7 @@ const Blog = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center">
                     <div className="w-10 h-10 bg-gradient-primary rounded-full flex items-center justify-center mr-3">
-                      <User className="w-5 h-5 text-primary-foreground" />
+                      <User className="w-5 h-5 text-white" />
                     </div>
                     <div>
                       <p className="font-outfit font-medium text-foreground text-sm">
@@ -285,61 +284,64 @@ const Blog = () => {
             {filteredPosts.map((post, index) => (
               <article
                 key={post.id}
-                className="bg-background border border-border rounded-xl overflow-hidden hover:shadow-card hover:-translate-y-2 transition-all duration-500 group"
+                className="bg-background border border-border rounded-xl overflow-hidden hover:shadow-card  cursor-pointer"
               >
-                {/* Image */}
-                <div className="relative h-48 bg-linear-to-br from-primary to-cyan">
-                  <div className="absolute inset-0 bg-gradient-primary opacity-60" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <div className="font-outfit font-bold text-sm opacity-80">#{post.id}</div>
-                      <div className="font-outfit text-xs opacity-60 mt-1">{post.category}</div>
+                <Link href={`/blog/${post.id}`}>
+
+                  {/* Image */}
+                  <div className="relative h-48 bg-linear-to-br from-primary to-cyan">
+                    <div className="absolute inset-0 bg-gradient-primary opacity-60" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-white">
+                        <div className="font-outfit font-bold text-sm opacity-80">#{post.id}</div>
+                        <div className="font-outfit text-xs opacity-60 mt-1">{post.category}</div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="absolute top-4 left-4">
-                    <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-                      {post.category}
-                    </Badge>
-                  </div>
-                </div>
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-outfit font-semibold text-lg mb-3 text-foreground group-hover:text-cyan transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <p className="font-outfit text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
-                    {post.excerpt}
-                  </p>
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {post.tags.slice(0, 3).map((tag) => (
-                      <Badge key={tag} variant="outline" className="text-xs">
-                        {tag}
+                    <div className="absolute top-4 left-4">
+                      <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                        {post.category}
                       </Badge>
-                    ))}
-                  </div>
-                  {/* Author & Meta */}
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
-                    <div className="flex items-center">
-                      <User className="w-3 h-3 mr-1" />
-                      {post.author}
-                    </div>
-                    <div className="flex items-center">
-                      <Calendar className="w-3 h-3 mr-1" />
-                      {post.date}
-                    </div>
-                    <div className="flex items-center">
-                      <Clock className="w-3 h-3 mr-1" />
-                      {post.readTime}
                     </div>
                   </div>
-                  <Button variant="outline" size="sm" asChild className="w-full group-hover:border-cyan group-hover:text-cyan">
-                    <Link href={`/blog/${post.id}`}>
-                      Read More
-                      <ArrowRight className="ml-2 w-3 h-3" />
-                    </Link>
-                  </Button>
-                </div>
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="font-outfit font-semibold text-lg mb-3 text-foreground group-hover:text-cyan transition-colors line-clamp-2">
+                      {post.title}
+                    </h3>
+                    <p className="font-outfit text-muted-foreground text-sm mb-4 leading-relaxed line-clamp-3">
+                      {post.excerpt}
+                    </p>
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <Badge key={tag} variant="outline" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    {/* Author & Meta */}
+                    <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
+                      <div className="flex items-center">
+                        <User className="w-3 h-3 mr-1" />
+                        {post.author}
+                      </div>
+                      <div className="flex items-center">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        {post.date}
+                      </div>
+                      <div className="flex items-center">
+                        <Clock className="w-3 h-3 mr-1" />
+                        {post.readTime}
+                      </div>
+                    </div>
+                    {/* <Button variant="outline" size="sm" asChild className="w-full group-hover:border-cyan group-hover:text-cyan">
+                    //  <Link href={`/blog/${post.id}`}>
+                    //   Read More
+                    //   <ArrowRight className="ml-2 w-3 h-3" />
+                    // </Link> 
+                  </Button> */}
+                  </div>
+                </Link>
               </article>
             ))}
           </div>
@@ -365,7 +367,7 @@ const Blog = () => {
           <p
             className="font-outfit text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
           >
-            Get the latest marketing strategies, case studies, and industry insights 
+            Get the latest marketing strategies, case studies, and industry insights
             delivered straight to your inbox.
           </p>
           <div

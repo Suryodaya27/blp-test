@@ -168,7 +168,7 @@ const About = () => {
                   </p>
                 </div>
                 <div className="relative">
-                  <div className="bg-primary rounded-xl p-8 text-primary-foreground">
+                  <div className="bg-primary rounded-xl p-8 text-white">
                     <div className="grid grid-cols-2 gap-4 text-center">
                       <div>
                         <div className="font-outfit font-bold text-3xl">500+</div>
@@ -243,7 +243,7 @@ const About = () => {
                   <div key={milestone.year} className="relative flex flex-col sm:flex-row items-start mb-12">
                     {/* Icon */}
                     <div className="relative z-10 w-16 h-16 bg-primary rounded-full flex items-center justify-center mr-0 sm:mr-6 shadow-glow mb-4 sm:mb-0">
-                      <milestone.icon className="w-8 h-8 text-primary-foreground" />
+                      <milestone.icon className="w-8 h-8 text-white" />
                     </div>
                     {/* Content */}
                     <div className="flex-1 bg-card border border-border rounded-xl p-6">
@@ -269,7 +269,7 @@ const About = () => {
               {values.map((value, index) => (
                 <div key={value.title} className="text-center">
                   <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 shadow-glow">
-                    <value.icon className="w-8 h-8 text-primary-foreground" />
+                    <value.icon className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="font-outfit font-semibold text-xl mb-3 text-foreground">{value.title}</h3>
                   <p className="font-outfit text-muted-foreground leading-relaxed">{value.description}</p>

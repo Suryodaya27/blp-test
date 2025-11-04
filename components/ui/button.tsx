@@ -9,8 +9,8 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:shadow-blue hover:scale-105 font-medium",
-        hero: "bg-primary text-primary-foreground hover:shadow-glow hover:scale-105 font-semibold text-base px-8 py-4 rounded-xl",
+        default: "bg-primary text-white hover:shadow-blue hover:scale-105 font-medium",
+        hero: "bg-primary text-white hover:shadow-glow hover:scale-105 font-semibold text-base px-8 py-4 rounded-xl",
         outline: "border border-border-bright bg-transparent text-foreground hover:bg-card-hover hover:shadow-glow transition-all duration-300",
         ghost: "text-foreground hover:bg-card-hover hover:text-cyan",
         link: "text-cyan underline-offset-4 hover:underline hover:text-primary transition-colors",

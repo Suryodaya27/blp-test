@@ -174,61 +174,64 @@ const Work = () => {
             {filteredCases.map((study, index) => (
               <div
                 key={study.id}
-                className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-card hover:-translate-y-2 transition-all duration-500"
+                className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-card cursor:pointer"
               >
-                {/* Project Image */}
-                <div className="relative h-48 bg-linear-to-br overflow-hidden">
-                  <div className={`absolute inset-0 bg-linear-to-br ${study.color} opacity-80`} />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center text-white">
-                      <h3 className="font-outfit font-bold text-2xl mb-2">{study.client}</h3>
-                      <p className="font-outfit opacity-90">{study.industry}</p>
+                <Link href={`/work/${study.id}`}>
+
+                  {/* Project Image */}
+                  <div className="relative h-48 bg-linear-to-br overflow-hidden">
+                    <div className={`absolute inset-0 bg-linear-to-br ${study.color} opacity-80`} />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center text-white">
+                        <h3 className="font-outfit font-bold text-2xl mb-2">{study.client}</h3>
+                        <p className="font-outfit opacity-90">{study.industry}</p>
+                      </div>
+                    </div>
+                    <div className="absolute top-4 right-4">
+                      <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
+                        {study.industry}
+                      </Badge>
                     </div>
                   </div>
-                  <div className="absolute top-4 right-4">
-                    <Badge variant="secondary" className="bg-white/20 text-white border-white/30">
-                      {study.industry}
-                    </Badge>
-                  </div>
-                </div>
 
-                {/* Content */}
-                <div className="p-6">
-                  <h3 className="font-outfit font-semibold text-xl mb-3 text-foreground group-hover:text-cyan transition-colors">
-                    {study.title}
-                  </h3>
-                  <p className="font-outfit text-muted-foreground mb-4 leading-relaxed">
-                    {study.description}
-                  </p>
-                  {/* Metrics */}
-                  <div className="grid grid-cols-2 gap-3 mb-4">
-                    {study.metrics.slice(0, 4).map((metric, idx) => (
-                      <div key={idx} className="text-center p-2 bg-muted rounded-lg">
-                        <div className="font-outfit font-bold text-lg text-primary">
-                          {metric.value}
+                  {/* Content */}
+                  <div className="p-6">
+                    <h3 className="font-outfit font-semibold text-xl mb-3 text-foreground group-hover:text-cyan transition-colors">
+                      {study.title}
+                    </h3>
+                    <p className="font-outfit text-muted-foreground mb-4 leading-relaxed">
+                      {study.description}
+                    </p>
+                    {/* Metrics */}
+                    <div className="grid grid-cols-2 gap-3 mb-4">
+                      {study.metrics.slice(0, 4).map((metric, idx) => (
+                        <div key={idx} className="text-center p-2 bg-muted rounded-lg">
+                          <div className="font-outfit font-bold text-lg text-primary">
+                            {metric.value}
+                          </div>
+                          <div className="font-outfit text-xs text-muted-foreground">
+                            {metric.label}
+                          </div>
                         </div>
-                        <div className="font-outfit text-xs text-muted-foreground">
-                          {metric.label}
-                        </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {study.tags.map((tag) => (
+                        <Badge key={tag} variant="secondary" className="text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    {/* CTA */}
+                    {/* <Button variant="outline" asChild className="w-full group-hover:border-cyan group-hover:text-cyan">
+                      <Link href={`/work/${study.id}`}>
+                        View Case Study
+                        <ArrowRight className="ml-2 w-4 h-4" />
+                      </Link>
+                    </Button> */}
                   </div>
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {study.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary" className="text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  {/* CTA */}
-                  <Button variant="outline" asChild className="w-full group-hover:border-cyan group-hover:text-cyan">
-                    <Link href={`/work/${study.id}`}>
-                      View Case Study
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </Link>
-                  </Button>
-                </div>
+                </Link>
               </div>
             ))}
           </div>

@@ -131,7 +131,7 @@ function Contact() {
                     className="flex items-start"
                   >
                     <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mr-4 flex-0 shadow-glow">
-                      <info.icon className="w-12 h-6 text-primary-foreground" />
+                      <info.icon className="w-12 h-6 text-white" />
                     </div>
                     <div>
                       <h3 className="font-outfit font-semibold text-foreground mb-2">

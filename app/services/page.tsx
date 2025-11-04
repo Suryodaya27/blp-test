@@ -341,7 +341,7 @@ const Services = () => {
                       {service.process.map((step, stepIndex) => (
                         <div key={stepIndex} className="flex items-start">
                           <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center mr-4 shrink-0 shadow-blue">
-                            <span className="font-outfit font-bold text-sm text-primary-foreground">
+                            <span className="font-outfit font-bold text-sm text-white">
                               {stepIndex + 1}
                             </span>
                           </div>

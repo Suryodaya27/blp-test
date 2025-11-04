@@ -118,7 +118,7 @@ const Home = () => {
             className="font-outfit font-bold text-5xl md:text-6xl mb-6 leading-tight"
           >
             <span className="block md:inline whitespace-normal wrap-break-words">
-              Where <span className="font-[cursive] italic text-cyan-400 text-5xl md:text-7xl drop-shadow-xl tracking-tight">Vision</span> Becomes <span className="font-[cursive] italic text-transparent bg-linear-to-r from-cyan-400 via-blue-400 to-blue-600 bg-clip-text text-5xl md:text-7xl font-extrabold drop-shadow-xl tracking-normal">Reality</span>
+              Where <span className="font-[cursive] italic text-cyan-400 text-5xl md:text-7xl drop-shadow-xl tracking-light">Vision</span> Becomes <span className="font-[cursive] italic text-transparent bg-linear-to-r from-cyan-400 via-blue-400 to-blue-600 bg-clip-text text-5xl md:text-7xl font-extrabold drop-shadow-xl tracking-light">Reality</span>
             </span>
           </h1>
           <p
@@ -130,7 +130,7 @@ const Home = () => {
           <div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Button variant="default" size="lg" asChild className="hover:scale-110 transition-transform duration-300 shadow-glow text-lg px-8 py-6">
+            <Button variant="default" size="lg" asChild className="hover:scale-110 transition-transform duration-300 hover:shadow-glow text-lg px-8 py-6">
               <Link href="/brand-enquiry">
                 Start Your BluePrynt
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -257,7 +257,7 @@ const Home = () => {
                 className="text-center group"
               >
                 <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center mx-auto mb-4 shadow-glow group-hover:scale-110 transition-transform duration-300">
-                  <feature.icon className="w-8 h-8 text-primary-foreground" />
+                  <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-outfit font-semibold text-lg mb-2 text-foreground group-hover:text-cyan transition-colors">
                   {feature.title}
@@ -293,7 +293,7 @@ const Home = () => {
               <div key={step.step} className="relative animate-fade-up" style={{ animationDelay: `${index * 150}ms` }}>
                 <div className="bg-hero border border-border rounded-xl p-6 hover:border-border-bright transition-all duration-300 group">
                   <div className="text-center">
-                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-primary-foreground font-bold text-lg shadow-glow group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center mx-auto mb-4 text-white font-bold text-lg shadow-glow group-hover:scale-110 transition-transform">
                       {step.step}
                     </div>
                     <h3 className="font-outfit font-semibold text-lg mb-3 text-foreground group-hover:text-cyan transition-colors">
