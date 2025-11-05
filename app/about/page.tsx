@@ -285,7 +285,7 @@ const About = () => {
               We&apos;re always looking for exceptional talent and amazing clients to add to our blueprint.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="hero" size="lg" asChild className="hover:scale-110 transition-transform duration-300 shadow-glow text-lg px-8 py-6">
+              <Button variant="hero" size="lg" asChild className="hover:scale-110 transition-transform duration-300 hover:shadow-glow text-lg px-8 py-6">
                 <Link href="/brand-enquiry">Work With Us<ArrowRight className="ml-2" /></Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="hover:scale-105 transition-all duration-300 text-lg px-8 py-6 border-2">
