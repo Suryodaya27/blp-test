@@ -1,7 +1,7 @@
 // lib/metadata.ts
 import type { Metadata } from "next";
 
-const BASE_URL = "https://blueprynt.io";
+export const BASE_URL = "https://blueprynt.io";
 
 export function makeMetadata(
   title: string,
