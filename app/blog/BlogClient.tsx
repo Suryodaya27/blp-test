@@ -252,7 +252,7 @@ const Blog = () => {
                   </div>
                 </div>
                 <Button variant="outline" asChild className="group-hover:border-cyan group-hover:text-cyan">
-                  <Link href={`/blog/${featuredPost.id}`}>
+                  <Link href='#'>
                     Read Full Article
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
@@ -286,7 +286,7 @@ const Blog = () => {
                 key={post.id}
                 className="bg-background border border-border rounded-xl overflow-hidden hover:shadow-card  cursor-pointer"
               >
-                <Link href={`/blog/${post.id}`}>
+                <Link href='#'>
 
                   {/* Image */}
                   <div className="relative h-48 bg-linear-to-br from-primary to-cyan">

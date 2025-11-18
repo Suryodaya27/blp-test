@@ -176,7 +176,7 @@ const Work = () => {
                 key={study.id}
                 className="group bg-card border border-border rounded-xl overflow-hidden hover:shadow-card cursor:pointer"
               >
-                <Link href={`/work/${study.id}`}>
+                <Link href='#'>
 
                   {/* Project Image */}
                   <div className="relative h-48 bg-linear-to-br overflow-hidden">

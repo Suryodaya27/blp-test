@@ -35,7 +35,7 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/company/blueprynt-llp/", label: "LinkedIn" },
-    { icon: Instagram, href: "https://www.instagram.com/blueprynt.io", label: "Instagram" },
+    { icon: Instagram, href: "https://www.instagram.com/_blueprynt.io_", label: "Instagram" },
     { icon: Facebook, href: "https://www.facebook.com/share/1CU9fozFjh/?mibextid=wwXIfr", label: "Facebook" },
   ];
 
