@@ -20,8 +20,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BluePrynt | Where Vision Becomes Reality",
+  title: "BluePrynt | Creative Marketing, SEO & Web Engineering",
   description: "Premium marketing solutions with architectural precision.",
+  alternates: {
+    canonical: "https://blueprynt.io",
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +34,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${outfit.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "BluePrynt",
+              "url": "https://blueprynt.io",
+              "description": "Premium marketing solutions with architectural precision.",
+              "sameAs": [
+                "https://www.linkedin.com/company/blueprynt-llp/",
+                "https://www.instagram.com/_blueprynt.io_",
+                "https://www.facebook.com/share/1CU9fozFjh/?mibextid=wwXIfr"
+              ]
+            }),
+          }}
+        />
+      </head>
       <body
         className='antialiased'
       >
@@ -39,6 +61,6 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
-    </html>
+    </html >
   );
 }
