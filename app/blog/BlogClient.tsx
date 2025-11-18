@@ -252,10 +252,10 @@ const Blog = () => {
                   </div>
                 </div>
                 <Button variant="outline" asChild className="group-hover:border-cyan group-hover:text-cyan">
-                  <Link href='#'>
+                  {/* <Link href='#'> */}
                     Read Full Article
                     <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
+                  {/* </Link> */}
                 </Button>
               </div>
             </div>
@@ -286,7 +286,7 @@ const Blog = () => {
                 key={post.id}
                 className="bg-background border border-border rounded-xl overflow-hidden hover:shadow-card  cursor-pointer"
               >
-                <Link href='#'>
+                {/* <Link href='#'> */}
 
                   {/* Image */}
                   <div className="relative h-48 bg-linear-to-br from-primary to-cyan">
@@ -341,7 +341,7 @@ const Blog = () => {
                     // </Link> 
                   </Button> */}
                   </div>
-                </Link>
+                {/* </Link> */}
               </article>
             ))}
           </div>
