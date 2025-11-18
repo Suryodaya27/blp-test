@@ -170,8 +170,8 @@ const Blog = () => {
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
                   className={`flex items-center px-4 py-2 rounded-lg transition-all duration-300 ${selectedCategory === category.id
-                      ? "bg-primary text-primary-foreground shadow-glow"
-                      : "bg-background border border-border hover:border-border-bright text-foreground"
+                    ? "bg-primary text-primary-foreground shadow-glow"
+                    : "bg-background border border-border hover:border-border-bright text-foreground"
                     }`}
                 >
                   <IconComponent className="w-4 h-4 mr-2" />
@@ -252,10 +252,10 @@ const Blog = () => {
                   </div>
                 </div>
                 <Button variant="outline" asChild className="group-hover:border-cyan group-hover:text-cyan">
-                  {/* <Link href='#'> */}
+                  <span className="flex items-center">
                     Read Full Article
                     <ArrowRight className="ml-2 w-4 h-4" />
-                  {/* </Link> */}
+                  </span>
                 </Button>
               </div>
             </div>
