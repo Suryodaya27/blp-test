@@ -24,12 +24,12 @@ const Footer = () => {
     ],
     collaborate: [
       { name: "Brand Enquiry", path: "/brand-enquiry" },
-      { name: "Influencer Register", path: "/influencer-register" },
+      { name: "Influencer Register", path: "#" },
       { name: "Contact", path: "/contact" },
     ],
     legal: [
-      { name: "Privacy Policy", path: "/privacy" },
-      { name: "Terms of Service", path: "/terms" },
+      { name: "Privacy Policy", path: "#" },
+      { name: "Terms of Service", path: "#" },
     ],
   };
 
