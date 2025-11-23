@@ -1,0 +1,34 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1763891493230,
+      "tag": "0000_chemical_sunspot",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1763891679099,
+      "tag": "0001_silly_the_watchers",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1763893619882,
+      "tag": "0002_uneven_blade",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1763895173981,
+      "tag": "0003_melted_risque",
+      "breakpoints": true
+    }
+  ]
+}

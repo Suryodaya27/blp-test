@@ -20,18 +20,37 @@ export default function BrandForm() {
         message: "",
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const [errors, setErrors] = useState<Partial<ContactFormData>>({});
+    const [submitError, setSubmitError] = useState<string>('');
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e?: React.FormEvent) => {
+    const handleSubmit = async (e?: React.FormEvent) => {
         e?.preventDefault();
+        setIsLoading(true);
+
         try {
             contactFormSchema.parse(formData);
             setErrors({});
+            setSubmitError('');
+
+            const response = await fetch('/api/contact-brand', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                setSubmitError(result.error || 'Failed to submit form');
+                return;
+            }
+
             setFormData({
                 name: "",
                 email: "",
@@ -43,26 +62,18 @@ export default function BrandForm() {
             setIsSubmitted(true);
             setTimeout(() => setIsSubmitted(false), 3500);
         } catch (error) {
-            // Print a clear error for debugging
-            // eslint-disable-next-line no-console
-            console.error("Form submit error:", error);
-
             if (error instanceof z.ZodError) {
-                // Log structured issues to console for easier debugging
-                // eslint-disable-next-line no-console
-                console.error("Validation issues:", JSON.stringify(error.issues, null, 2));
-
                 const fieldErrors: Partial<ContactFormData> = {};
                 error.issues.forEach((issue) => {
                     const key = issue.path && issue.path[0] ? String(issue.path[0]) : "form";
                     fieldErrors[key as keyof ContactFormData] = issue.message;
                 });
-
                 setErrors(fieldErrors);
-                return;
+            } else {
+                setSubmitError('Network error. Please try again.');
             }
-
-            return;
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -170,8 +181,14 @@ export default function BrandForm() {
                                         />
                                         {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
 
-                                        <Button type="submit" className="w-full">
-                                            Send Message
+                                        {submitError && (
+                                            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+                                                {submitError}
+                                            </div>
+                                        )}
+
+                                        <Button type="submit" className="w-full" disabled={isLoading}>
+                                            {isLoading ? 'Sending...' : 'Send Message'}
                                             <Send className="ml-2 w-4 h-4" />
                                         </Button>
                                     </form>

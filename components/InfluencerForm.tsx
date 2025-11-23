@@ -57,8 +57,10 @@ export default function InfluencerSignupPage() {
     const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(false);
     const [phone, setPhone] = useState<string>("");
     const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const [submittedInfluencer, setSubmittedInfluencer] = useState<InfluencerPayload | null>(null);
     const [errors, setErrors] = useState<Record<string, string>>({});
+    const [submitError, setSubmitError] = useState<string>('');
 
     function toggleCategory(opt: string) {
         setCategory((prev) => (prev.includes(opt) ? prev.filter((c) => c !== opt) : [...prev, opt]));
@@ -101,7 +103,9 @@ export default function InfluencerSignupPage() {
         setSocialMedia(socialMedia.filter((_, i) => i !== index));
     }
 
-    function handleSubmit() {
+    async function handleSubmit() {
+        setIsLoading(true);
+        
         const payload: InfluencerPayload = {
             name,
             location,
@@ -110,41 +114,52 @@ export default function InfluencerSignupPage() {
             socialMedia,
             submittedAt: new Date().toISOString(),
         };
-        // Validate with Zod schema
-        const result = influencerFormSchema.safeParse(payload);
+        
+        try {
+            // Validate with Zod schema
+            const result = influencerFormSchema.safeParse(payload);
 
-        if (!result.success) {
-            // Build a flat errors map keyed by path like 'name' or 'socialMedia.0.username'
-            const map: Record<string, string> = {};
-            result.error.issues.forEach((issue) => {
-                const key = issue.path.length ? issue.path.join(".") : "form";
-                // Only keep the first message for a given key
-                if (!map[key]) map[key] = issue.message;
+            if (!result.success) {
+                const map: Record<string, string> = {};
+                result.error.issues.forEach((issue) => {
+                    const key = issue.path.length ? issue.path.join(".") : "form";
+                    if (!map[key]) map[key] = issue.message;
+                });
+                setErrors(map);
+                return;
+            }
+
+            setErrors({});
+            setSubmitError('');
+            
+            const response = await fetch('/api/contact-influencer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
             });
-            setErrors(map);
-            // don't submit
-            return;
+            
+            const result2 = await response.json();
+            
+            if (!response.ok) {
+                setSubmitError(result2.error || 'Failed to submit form');
+                return;
+            }
+
+            // Clear the form
+            setName("");
+            setLocation("");
+            setPhone("");
+            setSocialMedia([]);
+            setSelectedPlatform("");
+            setCategory([]);
+
+            setIsSubmitted(true);
+            setTimeout(() => setIsSubmitted(false), 4000);
+        } catch (error) {
+            setSubmitError('Network error. Please try again.');
+        } finally {
+            setIsLoading(false);
         }
-
-        setErrors({});
-
-        // Store the submitted object (could be sent to API instead)
-        setSubmittedInfluencer(payload);
-
-        // eslint-disable-next-line no-console
-        console.log("Influencer form submit:", payload);
-
-        // Clear the form so the page looks clean
-        setName("");
-        setLocation("");
-        setPhone("");
-        setSocialMedia([]);
-        setSelectedPlatform("");
-        setCategory([]);
-
-        // Show a brief confirmation
-        setIsSubmitted(true);
-        setTimeout(() => setIsSubmitted(false), 4000);
     }
 
     return (
@@ -359,8 +374,17 @@ export default function InfluencerSignupPage() {
                                             </div>
                                         </div>
                                         {errors.socialMedia && <p className="text-sm text-red-600 mt-1">{errors.socialMedia}</p>}
+                                        
+                                        {submitError && (
+                                            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
+                                                {submitError}
+                                            </div>
+                                        )}
+                                        
                                         <div className="mt-6">
-                                            <Button className="w-full" onClick={handleSubmit}>Submit</Button>
+                                            <Button className="w-full" onClick={handleSubmit} disabled={isLoading}>
+                                                {isLoading ? 'Submitting...' : 'Submit'}
+                                            </Button>
                                             {isSubmitted && (
                                                 <p className="text-sm text-muted-foreground mt-3">Thanks — your data has been captured.</p>
                                             )}
