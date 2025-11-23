@@ -6,9 +6,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle, User } from "lucide-react";
 import { z } from "zod";
 import AnimatedBackground from "@/components/AnimatedBackground";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+// import InfluencerSignupPage from "@/app/influencer-form/page";
+import InfluencerSignupPage from "@/components/InfluencerForm";
+import BrandForm from "@/components/BrandForm";
 import { contactFormSchema, type ContactFormData } from "@/components/FormValidation";
 
 function Contact() {
@@ -30,7 +34,7 @@ function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     try {
       contactFormSchema.parse(formData);
       setErrors({});
@@ -79,7 +83,7 @@ function Contact() {
   const services = [
     "Landing Pages",
     "SEO/AEO",
-    "AI Agents", 
+    "AI Agents",
     "Influencer Marketing",
     "Social Ads",
     "Full Marketing Stack",
@@ -103,7 +107,7 @@ function Contact() {
           <p
             className="font-outfit text-xl text-muted-foreground max-w-3xl mx-auto"
           >
-            Ready to transform your business? We&apos;d love to hear about your vision 
+            Ready to transform your business? We&apos;d love to hear about your vision
             and show you how we can bring it to life.
           </p>
         </div>
@@ -116,7 +120,7 @@ function Contact() {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
             {/* Contact Information */}
-            <div>
+            <div className="order-2 lg:order-1">
               <h2 className="font-outfit font-bold text-3xl md:text-4xl mb-8 text-foreground">
                 Get In Touch
               </h2>
@@ -168,120 +172,42 @@ function Contact() {
                 </Button>
               </div>
             </div>
-            {/* Contact Form */}
-            <div
-              className="bg-card border border-border rounded-xl p-8"
-            >
-              {isSubmitted ? (
-                <div className="text-center py-12 animate-scale-in">
-                  <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
-                  <h3 className="font-outfit font-semibold text-xl text-foreground mb-2">
-                    Message Sent!
-                  </h3>
-                  <p className="font-outfit text-muted-foreground">
-                    Thanks for reaching out. We&apos;ll get back to you within 24 hours.
-                  </p>
+            {/* Contact Form (now tabbed: Influencer | Brand) */}
+            <div className="bg-card border border-border rounded-xl p-8 order-1 lg:order-2">
+              <Tabs defaultValue="influencer">
+                <div className="flex items-center justify-center gap-5 w-full">
+                  <div className="flex items-center gap-3">
+                    <User className="w-4 h-4 text-primary" />
+                    <span className="text-sm font-medium">Select your role</span>
+                  </div>
+
+                  <TabsList className="flex bg-muted rounded-full p-1">
+                    <TabsTrigger
+                      value="influencer"
+                      className="px-4 py-1 rounded-full text-sm data-[state=active]:bg-primary data-[state=active]:text-white transition"
+                    >
+                      Influencer
+                    </TabsTrigger>
+
+                    <TabsTrigger
+                      value="brand"
+                      className="px-4 py-1 rounded-full text-sm data-[state=active]:bg-primary data-[state=active]:text-white transition"
+                    >
+                      Brand
+                    </TabsTrigger>
+                  </TabsList>
                 </div>
-              ) : (
-                <>
-                  <h3 className="font-outfit font-bold text-2xl mb-6 text-foreground">
-                    Send Us a Message
-                  </h3>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="name">Name *</Label>
-                        <Input
-                          id="name"
-                          name="name"
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="Your full name"
-                          required
-                          className="mt-1"
-                        />
-                        {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-                      </div>
-                      <div>
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          name="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="your@email.com"
-                          required
-                          className="mt-1"
-                        />
-                        {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="company">Company</Label>
-                         <Input
-                          id="company"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleInputChange}
-                          placeholder="Your company name"
-                          className="mt-1"
-                        />
-                        {errors.company && <p className="text-red-500 text-sm mt-1">{errors.company}</p>}
-                      </div>
-                      <div>
-                        <Label htmlFor="phone">Phone</Label>
-                        <Input
-                          id="phone"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="+91 98765 43210"
-                          className="mt-1"
-                        />
-                        {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
-                      </div>
-                    </div>
-                    <div>
-                      <Label htmlFor="service">Service Interest</Label>
-                      <select
-                        id="service"
-                        name="service"
-                        value={formData.service}
-                        onChange={handleInputChange}
-                        className="mt-1 w-full px-3 py-2 bg-input border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-ring font-outfit text-foreground"
-                      >
-                        <option value="">Select a service</option>
-                        {services.map((service) => (
-                          <option key={service} value={service}>
-                            {service}
-                          </option>
-                        ))}
-                      </select>
-                      {errors.service && <p className="text-red-500 text-sm mt-1">{errors.service}</p>}
-                    </div>
-                    <div>
-                      <Label htmlFor="message">Message *</Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell us about your project, goals, and how we can help..."
-                        required
-                        rows={5}
-                        className="mt-1"
-                      />
-                      {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-                    </div>
-                    <Button type="submit" variant="hero" className="w-full">
-                      Send Message
-                      <Send className="ml-2 w-4 h-4" />
-                    </Button>
-                  </form>
-                </>
-              )}
+
+                <div className="mt-6">
+                  <TabsContent value="influencer">
+                    <InfluencerSignupPage />
+                  </TabsContent>
+
+                  <TabsContent value="brand">
+                    <BrandForm />
+                  </TabsContent>
+                </div>
+              </Tabs>
             </div>
           </div>
         </div>
@@ -306,7 +232,7 @@ function Contact() {
                 We&apos;re Located Across India
               </h3>
               <p className="font-outfit text-muted-foreground mb-6">
-                With offices in Mumbai, Delhi, and Bangalore, we&apos;re always close to our clients. 
+                With offices in Mumbai, Delhi, and Bangalore, we&apos;re always close to our clients.
                 Schedule a visit to see our team in action.
               </p>
               <div className="grid md:grid-cols-3 gap-6">

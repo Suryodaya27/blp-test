@@ -15,7 +15,6 @@ export const contactFormSchema = z.object({
     .max(100, "Company name must be less than 100 characters"),
   phone: z.string()
     .min(10, "Phone number must be at least 10 digits")
-    .max(15, "Phone number must be less than 15 digits")
     .regex(/^[0-9+\s()-]+$/, "Please enter a valid phone number"),
   service: z.string().min(1, "Please select a service"),
   message: z.string()
@@ -79,3 +78,27 @@ export const brandEnquirySchema = z.object({
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
 export type BrandEnquiryFormData = z.infer<typeof brandEnquirySchema>;
+
+// Influencer Form Schema
+export const influencerFormSchema = z.object({
+  name: z.string()
+    .min(2, "Name must be at least 2 characters")
+    .max(100, "Name must be less than 100 characters"),
+  location: z.string()
+    .min(2, "Location must be at least 2 characters")
+    .max(255, "Location must be less than 255 characters"),
+  phone: z.string()
+    .min(10, "Phone number must be at least 10 digits")
+    .max(20, "Phone number must be less than 20 characters")
+    .regex(/^[0-9+\s()-]+$/, "Please enter a valid phone number"),
+  category: z.array(z.string()).min(1, "Please select at least one category"),
+  socialMedia: z.array(z.object({
+    platform: z.string().min(1, "Platform is required"),
+    username: z.string().min(1, "Username is required"),
+    followers: z.string().min(1, "Followers/Subscribers is required"),
+    collaborationType: z.enum(["paid", "barter", "both"]),
+    minimumBudget: z.string().optional().or(z.literal("")),
+  })).min(1, "Please add at least one social media account"),
+});
+
+export type InfluencerFormData = z.infer<typeof influencerFormSchema>;
