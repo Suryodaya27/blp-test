@@ -1,0 +1,1 @@
+ALTER TABLE "contactsBrand" ADD COLUMN "metadata" json;
