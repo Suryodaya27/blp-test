@@ -19,7 +19,8 @@ export const contactsInfluencer = pgTable('contactsInfluencer', {
   location: varchar('location', { length: 255 }).notNull(),
   phone: varchar('phone', { length: 50 }).notNull(),
   category: json('category').notNull(), // array of categories
-  socialMedia: json('social_media').notNull(), // array of social media objects
+  socialMedia: json('social_media').notNull(),
+  email: varchar('email', { length: 255 }).notNull(),
   metadata: json('metadata'),
   createdAt: timestamp('created_at').defaultNow().notNull(),
 });

@@ -27,8 +27,7 @@ const CATEGORY_OPTIONS = [
     "business",
     "food",
     "entertainment",
-    "finance",
-    "etc",
+    "finance"
 ];
 
 type SocialMediaItem = {
@@ -41,6 +40,7 @@ type SocialMediaItem = {
 
 type InfluencerPayload = {
     name: string;
+    email: string;
     location: string;
     phone: string;
     category: string[];
@@ -52,6 +52,7 @@ export default function InfluencerSignupPage() {
     const [socialMedia, setSocialMedia] = useState<SocialMediaItem[]>([]);
     const [selectedPlatform, setSelectedPlatform] = useState<string>("");
     const [name, setName] = useState<string>("");
+    const [email, setEmail] = useState<string>("");
     const [location, setLocation] = useState<string>("");
     const [category, setCategory] = useState<string[]>([]);
     const [isCategoryOpen, setIsCategoryOpen] = useState<boolean>(false);
@@ -105,16 +106,17 @@ export default function InfluencerSignupPage() {
 
     async function handleSubmit() {
         setIsLoading(true);
-        
+
         const payload: InfluencerPayload = {
             name,
+            email,
             location,
             category,
             phone,
             socialMedia,
             submittedAt: new Date().toISOString(),
         };
-        
+
         try {
             // Validate with Zod schema
             const result = influencerFormSchema.safeParse(payload);
@@ -131,15 +133,15 @@ export default function InfluencerSignupPage() {
 
             setErrors({});
             setSubmitError('');
-            
+
             const response = await fetch('/api/contact-influencer', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
             });
-            
+
             const result2 = await response.json();
-            
+
             if (!response.ok) {
                 setSubmitError(result2.error || 'Failed to submit form');
                 return;
@@ -147,6 +149,7 @@ export default function InfluencerSignupPage() {
 
             // Clear the form
             setName("");
+            setEmail("");
             setLocation("");
             setPhone("");
             setSocialMedia([]);
@@ -168,7 +171,7 @@ export default function InfluencerSignupPage() {
 
             <div className="container mx-auto">
                 <div className="max-w-lg sm:max-w-2xl mx-auto">
-                    <Card className="bg-card border border-border rounded-xl">
+                    <Card className="px-10 border border-border rounded-xl">
                         <CardContent className="p-0">
                             {isSubmitted ? (
                                 <div className="text-center py-12 animate-scale-in">
@@ -183,6 +186,8 @@ export default function InfluencerSignupPage() {
                                     <div className="space-y-4">
                                         <Input placeholder="Your Name" value={name} onChange={(e) => setName((e.target as HTMLInputElement).value)} />
                                         {errors.name && <p className="text-sm text-red-600 mt-1">{errors.name}</p>}
+                                        <Input placeholder="Email" type="email" value={email} onChange={(e) => setEmail((e.target as HTMLInputElement).value)} />
+                                        {errors.email && <p className="text-sm text-red-600 mt-1">{errors.email}</p>}
                                         <Input placeholder="Location" value={location} onChange={(e) => setLocation((e.target as HTMLInputElement).value)} />
                                         {errors.location && <p className="text-sm text-red-600 mt-1">{errors.location}</p>}
                                         <Input placeholder="Phone" value={phone} onChange={(e) => setPhone((e.target as HTMLInputElement).value)} />
@@ -374,13 +379,13 @@ export default function InfluencerSignupPage() {
                                             </div>
                                         </div>
                                         {errors.socialMedia && <p className="text-sm text-red-600 mt-1">{errors.socialMedia}</p>}
-                                        
+
                                         {submitError && (
                                             <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded">
                                                 {submitError}
                                             </div>
                                         )}
-                                        
+
                                         <div className="mt-6">
                                             <Button className="w-full" onClick={handleSubmit} disabled={isLoading}>
                                                 {isLoading ? 'Submitting...' : 'Submit'}
