@@ -74,7 +74,7 @@ function Contact() {
 
               <div className="space-y-3">
                 <Link href="/contact/influencer" className="block group">
-                  <div className="relative overflow-hidden bg-gradient-to-r from-purple-50 to-pink-50 border border-border-bright rounded-lg p-4 transition-all duration-300 group-hover:shadow-lg group-hover:border-purple-300 group-hover:-translate-y-1">
+                  <div className="relative overflow-hidden border border-border-bright rounded-lg p-4 transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-md">
                         <UserCircle className="w-6 h-6 text-white" />
@@ -93,7 +93,7 @@ function Contact() {
                 </Link>
 
                 <Link href="/contact/brand" className="block group">
-                  <div className="relative overflow-hidden bg-gradient-to-r from-blue-50 to-indigo-50 border border-border-bright rounded-lg p-4 transition-all duration-300 group-hover:shadow-lg group-hover:border-gradient-priamry group-hover:-translate-y-1">
+                  <div className="relative overflow-hidden border border-border-bright rounded-lg p-4 transition-all duration-300 group-hover:shadow-lg group-hover:-translate-y-1">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-full flex items-center justify-center shadow-md">
                         <Building2 className="w-6 h-6 text-white" />
