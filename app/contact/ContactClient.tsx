@@ -80,8 +80,8 @@ function Contact() {
                         <UserCircle className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900 group-hover:text-purple-700 transition-colors">Influencer</h4>
-                        <p className="text-gray-600 text-sm">Join our creator network</p>
+                        <h4 className="font-semibold text-white">Influencer</h4>
+                        <p className="text-white text-sm">Join our creator network</p>
                       </div>
                       <div className="text-purple-400 group-hover:text-purple-600 transition-colors">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,8 +99,8 @@ function Contact() {
                         <Building2 className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-semibold text-gray-900 group-hover:text-blue-700 transition-colors">Brand</h4>
-                        <p className="text-gray-600 text-sm">Partner with creators</p>
+                        <h4 className="font-semibold text-white">Brand</h4>
+                        <p className="text-white text-sm">Partner with creators</p>
                       </div>
                       <div className="text-blue-400 group-hover:text-blue-600 transition-colors">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
