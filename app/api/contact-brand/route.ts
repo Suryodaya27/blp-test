@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { contactsBrand } from '@/lib/db/schema';
 import { contactFormSchema } from '@/components/FormValidation';
+import { sendSignupAlert } from '@/lib/discord_alert';
 
 export async function POST(request: NextRequest) {
 	try {
@@ -13,7 +14,7 @@ export async function POST(request: NextRequest) {
 			...validatedData,
 			metadata: { source: 'brand-form', timestamp: new Date().toISOString() }
 		}).returning();
-
+		await sendSignupAlert('Brand', validatedData.email, validatedData.name);
 		return NextResponse.json({ success: true, id: result[0].id });
 	} catch (error) {
 		console.error('Contact brand form error:', error);

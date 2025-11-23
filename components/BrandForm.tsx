@@ -93,7 +93,7 @@ export default function BrandForm() {
 
             <div className="container mx-auto">
                 <div className="max-w-lg sm:max-w-2xl mx-auto">
-                    <Card className="bg-card border border-border rounded-xl">
+                    <Card className="px-10 bg-card border border-border rounded-xl">
                         <CardContent className="p-0">
                             {isSubmitted ? (
                                 <div className="text-center py-12 animate-scale-in">
