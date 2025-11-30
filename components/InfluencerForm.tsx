@@ -219,7 +219,7 @@ export default function InfluencerSignupPage() {
                                             <button
                                                 type="button"
                                                 onClick={() => setIsCategoryOpen((s) => !s)}
-                                                className="w-full flex items-center justify-between px-4 py-2 rounded-lg bg-muted border border-border hover:bg-muted/70 transition-colors text-sm"
+                                                className="w-full cursor-pointer flex items-center justify-between px-4 py-2 rounded-lg bg-muted border border-border hover:bg-muted/70 transition-colors text-sm"
                                             >
                                                 <span>Select categories</span>
                                                 <svg
@@ -272,7 +272,7 @@ export default function InfluencerSignupPage() {
                                                                 size="sm"
                                                                 variant="outline"
                                                                 onClick={() => setIsCategoryOpen(false)}
-                                                                className="rounded-full px-5"
+                                                                className="rounded-full px-5 cursor-pointer"
                                                             >
                                                                 Done
                                                             </Button>
@@ -305,7 +305,7 @@ export default function InfluencerSignupPage() {
                                                     ))}
                                                 </select>
 
-                                                <Button onClick={addPlatform} variant="outline">
+                                                <Button onClick={addPlatform} variant="outline" className="cursor-pointer">
                                                     <Plus className="w-4 h-4" />
                                                 </Button>
                                             </div>
@@ -320,7 +320,7 @@ export default function InfluencerSignupPage() {
                                                                 </p>
                                                                 <button
                                                                     onClick={() => removePlatform(index)}
-                                                                    className="text-muted-foreground hover:text-red-600"
+                                                                    className="text-muted-foreground cursor-pointer hover:text-red-600"
                                                                     aria-label="Remove social platform"
                                                                 >
                                                                     <X className="w-4 h-4" />
@@ -387,7 +387,7 @@ export default function InfluencerSignupPage() {
                                         )}
 
                                         <div className="mt-6">
-                                            <Button className="w-full" onClick={handleSubmit} disabled={isLoading}>
+                                            <Button className="w-full cursor-pointer" onClick={handleSubmit} disabled={isLoading}>
                                                 {isLoading ? 'Submitting...' : 'Submit'}
                                             </Button>
                                             {isSubmitted && (

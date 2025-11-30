@@ -10,6 +10,8 @@ export default function sitemap() {
     "/contact",
     "/services",
     "/work",
+    "/contact/brand",
+    "/contact/influencer"
   ];
 
   const lastmod = new Date().toISOString();

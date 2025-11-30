@@ -187,7 +187,7 @@ export default function BrandForm() {
                                             </div>
                                         )}
 
-                                        <Button type="submit" className="w-full" disabled={isLoading}>
+                                        <Button type="submit" className="w-full cursor-pointer" disabled={isLoading}>
                                             {isLoading ? 'Sending...' : 'Send Message'}
                                             <Send className="ml-2 w-4 h-4" />
                                         </Button>
