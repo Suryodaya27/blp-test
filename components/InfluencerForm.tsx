@@ -27,7 +27,11 @@ const CATEGORY_OPTIONS = [
     "business",
     "food",
     "entertainment",
-    "finance"
+    "finance",
+    "gaming",
+    "real money gaming",
+    "health",
+    "education",
 ];
 
 type SocialMediaItem = {
@@ -241,42 +245,39 @@ export default function InfluencerSignupPage() {
 
                                             {/* Dropdown Panel */}
                                             {isCategoryOpen && (
-                                                <div className="relative">
-                                                    <div className="absolute z-20 mt-2 w-full bg-card border border-border rounded-xl shadow-lg p-4 animate-in fade-in slide-in-from-top-2 duration-150">
+                                                <div className="mt-2 w-full bg-card border border-border rounded-xl shadow-lg p-4 animate-in fade-in slide-in-from-top-2 duration-150">
+                                                    <div className="grid grid-cols-2 gap-2">
+                                                        {CATEGORY_OPTIONS.map((opt) => {
+                                                            const selected = category.includes(opt);
 
-                                                        <div className="grid grid-cols-2 gap-2">
-                                                            {CATEGORY_OPTIONS.map((opt) => {
-                                                                const selected = category.includes(opt);
-
-                                                                return (
-                                                                    <label
-                                                                        key={opt}
-                                                                        className={`flex items-center gap-2 px-2 py-1 rounded-md cursor-pointer transition
+                                                            return (
+                                                                <label
+                                                                    key={opt}
+                                                                    className={`flex items-center gap-2 px-2 py-1 rounded-md cursor-pointer transition
                   ${selected ? "bg-primary/10" : "hover:bg-accent/40"}
                 `}
-                                                                    >
-                                                                        <input
-                                                                            type="checkbox"
-                                                                            checked={selected}
-                                                                            onChange={() => toggleCategory(opt)}
-                                                                            className="accent-primary w-4 h-4 rounded"
-                                                                        />
-                                                                        <span className="capitalize text-sm">{opt}</span>
-                                                                    </label>
-                                                                );
-                                                            })}
-                                                        </div>
+                                                                >
+                                                                    <input
+                                                                        type="checkbox"
+                                                                        checked={selected}
+                                                                        onChange={() => toggleCategory(opt)}
+                                                                        className="accent-primary w-4 h-4 rounded"
+                                                                    />
+                                                                    <span className="capitalize text-sm">{opt}</span>
+                                                                </label>
+                                                            );
+                                                        })}
+                                                    </div>
 
-                                                        <div className="mt-3 flex justify-end">
-                                                            <Button
-                                                                size="sm"
-                                                                variant="outline"
-                                                                onClick={() => setIsCategoryOpen(false)}
-                                                                className="rounded-full px-5 cursor-pointer"
-                                                            >
-                                                                Done
-                                                            </Button>
-                                                        </div>
+                                                    <div className="mt-3 flex justify-end">
+                                                        <Button
+                                                            size="sm"
+                                                            variant="outline"
+                                                            onClick={() => setIsCategoryOpen(false)}
+                                                            className="rounded-full px-5 cursor-pointer"
+                                                        >
+                                                            Done
+                                                        </Button>
                                                     </div>
                                                 </div>
                                             )}
